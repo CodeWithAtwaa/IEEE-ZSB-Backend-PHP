@@ -152,3 +152,15 @@
         <?php endforeach; ?>
 
 ```
+
+### Lamda Functions
+
+- Inline function
+- function store as a variable.
+
+```php
+    $filteredItems = filter($books, function ($book) {
+        return $book['releaseYear'] <= 2000;
+    });
+
+```
