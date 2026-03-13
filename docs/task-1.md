@@ -96,7 +96,18 @@
 ### Array 
 - an array is a special variable that can hold many values under a single name, and you can access the values by referring to an index number or a name.
 
+`Array Types`
+- Indexed array
+* Associative array
+
 ```php
     $arr = [1,2,"Mohamed" , true, null];
     $arr2 = array(10,20,30,40,50,null , true);
+
+    $asoc = [
+        'name' => "Mohamed" ,
+        'age' => 20,
+        'faculty' => 'FCI-ZU'
+    ];
+
 ```

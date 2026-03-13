@@ -29,11 +29,17 @@
         endforeach;
         ?>
     </ul>
-        <?php
-        foreach ($names as $name):
-            echo "<li>" . $name . "</li>";
-        endforeach;
-        ?>
+
+    <?php
+    $asoc = [
+        'name' => "Mohamed",
+        'age' => 20,
+        'faculty' => 'FCI-ZU'
+    ];
+    foreach ($asoc as $key => $value):
+        echo "<li>" . $key . ": ". $value . "</li>";
+    endforeach;
+    ?>
     </ul>
 </body>
 
