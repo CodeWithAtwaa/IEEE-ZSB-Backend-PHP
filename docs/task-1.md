@@ -93,11 +93,14 @@
 ?>
 ```
 
-### Array 
+### Array
+
 - an array is a special variable that can hold many values under a single name, and you can access the values by referring to an index number or a name.
 
 `Array Types`
+
 - Indexed array
+
 * Associative array
 
 ```php
@@ -109,5 +112,43 @@
         'age' => 20,
         'faculty' => 'FCI-ZU'
     ];
+
+```
+
+### Functions And Filters
+
+- A function is a block of statements that can be used repeatedly in a program.
+- A function is executed only when it is called.
+
+```php
+    // Defined Functino
+    function funName() {
+        // logic
+    }
+
+    // to call the function
+    funName();
+
+
+
+    function FilterByAuthor($books , $author) {
+        $filterBooks = [];
+        foreach($books as $book) {
+            if($book['author'] === $author) {
+                $filterBooks[] = $book;
+            }
+        }
+        return $filterBooks;
+    }
+
+        <?php foreach (FilterByAuthor($books , "Mohamed") as $book): ?>
+            <?php if ($book['author'] == "Mohamed"): ?>
+                <li>
+                    <a href="<?= $book['purchaseUrl'] ?>">
+                        <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+                    </a>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
 
 ```
