@@ -1,0 +1,3 @@
+CREATE DATABASE IEEE_Backend_PHP
+
+use IEEE_Backend_PHP;
