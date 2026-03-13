@@ -37,10 +37,100 @@
         'faculty' => 'FCI-ZU'
     ];
     foreach ($asoc as $key => $value):
-        echo "<li>" . $key . ": ". $value . "</li>";
+        echo "<li>" . $key . ": " . $value . "</li>";
     endforeach;
     ?>
     </ul>
+
+
+    <?php
+    $books = [
+        [
+            'name' => "DSA",
+            'author' => 'Mohamed',
+            'releaseYear' => 2026,
+            'purchaseUrl' => "http://localhost:8888/"
+        ],
+        [
+            'name' => "DB",
+            'author' => 'Ahmed',
+            'releaseYear' => 2005,
+            'purchaseUrl' => "http://localhost:8888/"
+        ],
+        [
+            'name' => "PHP",
+            'author' => 'Abbas',
+            'releaseYear' => 2000,
+            'purchaseUrl' => "http://localhost:8888/"
+        ],
+        [
+            'name' => "DSA",
+            'author' => 'Mohamed',
+            'releaseYear' => 2026,
+            'purchaseUrl' => "http://localhost:8888/"
+        ],
+        [
+            'name' => "DB",
+            'author' => 'Ahmed',
+            'releaseYear' => 2005,
+            'purchaseUrl' => "http://localhost:8888/"
+        ],
+        [
+            'name' => "PHP",
+            'author' => 'Abbas',
+            'releaseYear' => 2000,
+            'purchaseUrl' => "http://localhost:8888/"
+        ],
+        [
+            'name' => "DSA",
+            'author' => 'Mohamed',
+            'releaseYear' => 2026,
+            'purchaseUrl' => "http://localhost:8888/"
+        ],
+        [
+            'name' => "DB",
+            'author' => 'Ahmed',
+            'releaseYear' => 2005,
+            'purchaseUrl' => "http://localhost:8888/"
+        ],
+        [
+            'name' => "PHP",
+            'author' => 'Abbas',
+            'releaseYear' => 2000,
+            'purchaseUrl' => "http://localhost:8888/"
+        ],
+    ];
+
+    function FilterByAuthor($books , $author) {
+        $filterBooks = [];
+        foreach($books as $book) {
+            if($book['author'] === $author) {
+                $filterBooks[] = $book;
+            }
+        }
+
+        return $filterBooks;
+    }
+
+
+    ?>
+
+    <ul>
+
+        <?php foreach (FilterByAuthor($books , "Mohamed") as $book): ?>
+            <?php if ($book['author'] == "Mohamed"): ?>
+                <li>
+                    <a href="<?= $book['purchaseUrl'] ?>">
+                        <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+                    </a>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+    </ul>
+
+
+
 </body>
 
 </html>
