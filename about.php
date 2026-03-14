@@ -1,2 +1,3 @@
-<?php 
-include('about.view.php');
+<?php
+$heading = "About Us";
+include('views/about.view.php');

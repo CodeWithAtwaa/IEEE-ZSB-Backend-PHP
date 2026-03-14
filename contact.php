@@ -1,2 +1,4 @@
 <?php
-include('contact.view.php');
+$heading = "Contact";
+
+include('views/contact.view.php');
