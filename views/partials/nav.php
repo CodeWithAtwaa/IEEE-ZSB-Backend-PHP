@@ -16,17 +16,17 @@
                                 rounded-md  px-3 py-2 text-sm font-medium  hover:bg-white/5 hover:text-white">Home</a>
 
                                 <!-- About Links -->
-                                <a href="/about.php" class="
+                                <a href="/about" class="
                                                                     <?php
-                                                                    echo UrlIs('/about.php') ? "bg-gray-900 text-white" : "text-gray-300";
+                                                                    echo UrlIs('/about') ? "bg-gray-900 text-white" : "text-gray-300";
                                                                     ?>
                                 rounded-md px-3 py-2 text-sm font-medium  hover:bg-white/5 hover:text-white">About</a>
 
 
                                 <!-- Contact Links -->
-                                <a href="/contact.php" class="
+                                <a href="/contact" class="
                                                                     <?php
-                                                                    echo UrlIs('/contact.php') ? "bg-gray-900 text-white" : "text-gray-300";
+                                                                    echo UrlIs('/contact') ? "bg-gray-900 text-white" : "text-gray-300";
                                                                     ?>
                                 rounded-md px-3 py-2 text-sm font-medium  hover:bg-white/5 hover:text-white">Contact</a>
                             </div>
