@@ -164,3 +164,10 @@
     });
 
 ```
+### To import files in php
+- `include` 
+- `require` 
+```php
+include("file.php");
+require("file.php");
+```
