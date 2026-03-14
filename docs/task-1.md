@@ -197,3 +197,24 @@ do{
     $i++;
 }while($i <$n);
 ```
+
+
+###  PHP Superglobals
+- PHP Superglobals are built-in variables that are always accessible in all scopes!
+
+1- `$GLOBALS` :An array that contains references to all global variables of the script.
+```php
+	$y = "Mohamed";
+	$x = "ali";
+
+	echo $GLOBALS['y'];
+	echo $GLOBALS['x'];
+```
+
+2- $_SERVER :_ superglobal holds information about the web server including headers, paths, and script locations.
+
+```php
+	echo "<pre>";
+	print_r($_SERVER);
+	echo "</pre>";
+```
