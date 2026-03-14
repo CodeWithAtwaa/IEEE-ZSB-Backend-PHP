@@ -164,10 +164,36 @@
     });
 
 ```
+
 ### To import files in php
-- `include` 
-- `require` 
+
+- `include`
+- `require`
+
 ```php
 include("file.php");
 require("file.php");
+```
+
+### Loops
+
+- exist in php many keywords used to loops, like :
+  `for`, `while`, `do..while` , `foreach`
+
+```php
+for($i = 0 ;$i < $n;$i++) {
+    // code;
+}
+
+$i = 0;
+while($i < $n) {
+    // code
+    $i++
+}
+
+do{
+    $i = 0;
+    // code
+    $i++;
+}while($i <$n);
 ```
