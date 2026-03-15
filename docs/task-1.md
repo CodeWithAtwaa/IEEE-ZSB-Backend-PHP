@@ -226,3 +226,9 @@ do{
 // parse_url() => this funciton make dump for url as array
 $uri = parse_url($_SERVER['REQUEST_URI']);
 ```
+------
+
+
+### Connect to Database using PDO 
+- PDO is used to connect by our Database like MySQL.
+- PDO id `PHP Data Object`
