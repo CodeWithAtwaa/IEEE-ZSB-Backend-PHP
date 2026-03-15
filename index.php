@@ -1,21 +1,9 @@
 <?php
-
 require("functions.php");
+require("Database.php");
+$config = require ("config.php");
 
-// Connect to our Mysql Database
-
-$dsn = "mysql:host=localhost;dbname=IEEE_Backend_PHP;charset=utf8mb4";
-$username = "root";
-$password = "MyRoot@1234";
-
-$pdo = new PDO($dsn , $username , $password);
-$statment = $pdo->prepare("SELECT * FROM users");
-$statment->execute();
-$result = $statment->fetchAll(PDO::FETCH_ASSOC);
-
-dd($result);
-
+$pdo = new Database($config, $username , $password);
+dd($pdo->query("SELECT * FROM posts")->fetchAll());
 
 require('router.php');
-
-
