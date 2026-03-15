@@ -1,13 +1,6 @@
 use IEEE_Backend_PHP;
 
-INSERT INTO posts (title, user_id) VALUES ("my first post", 1);
-
-INSERT INTO posts (title, user_id) VALUES ("my second post", 1);
-
-INSERT INTO posts (title, user_id) VALUES ("my third post", 2);
-
-INSERT INTO posts (title, user_id) VALUES ("my fourth post", 3);
-
+-- insert data in user table
 INSERT INTO
     users (name, email)
 VALUES (
@@ -37,3 +30,13 @@ VALUES ("warda", "warda000@gmail.com");
 INSERT INTO
     users (name, email)
 VALUES ("manar", "manar4@gmail.com");
+
+-- Insert Data in posts table
+
+INSERT INTO posts (title, user_id) VALUES ("my first post", 1);
+
+INSERT INTO posts (title, user_id) VALUES ("my second post", 1);
+
+INSERT INTO posts (title, user_id) VALUES ("my third post", 2);
+
+INSERT INTO posts (title, user_id) VALUES ("my fourth post", 3);
