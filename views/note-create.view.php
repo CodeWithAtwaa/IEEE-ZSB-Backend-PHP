@@ -10,8 +10,18 @@
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
+
                         <div class="col-span-full">
-                            <label for="about" class="block text-sm/6 font-medium text-gray-900">Body</label>
+                            <?php if (isset($_SESSION['msg'])): ?>
+                                <p class="text-white bg-green-500 mt-3 text-xs text-center py-2 rounded">
+                                    <?= htmlspecialchars($_SESSION['msg']) ?>
+                                </p>
+                                <?php unset($_SESSION['msg']);
+                                $body = "";
+                                ?>
+                            <?php endif; ?>
+
+                            <label for="about" class="block text-sm/6 font-medium text-gray-900 mt-3">Body</label>
                             <div class="mt-2">
                                 <textarea
                                     id="about"

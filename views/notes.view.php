@@ -4,6 +4,10 @@
 <?php include('partials/banner.php') ?>
 <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+
+        <p class="mt-5">
+            <a href="/notes/create" class="inline-block px-3 py-3  text-white bg-green-500 rounded hover:bg-blue-600 transition">Create Note</a>
+        </p>
         <ul>
             <?php
             foreach ($notes as $note) {
@@ -20,9 +24,7 @@
             ?>
         </ul>
 
-        <p class="mt-5">
-            <a href="/notes/create" class="inline-block px-3 py-3  text-white bg-green-500 rounded hover:bg-blue-600 transition">Create Note</a>
-        </p>
+
     </div>
 </main>
 
