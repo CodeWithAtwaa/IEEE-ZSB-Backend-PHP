@@ -250,7 +250,7 @@ $result = $statment->fetchAll(PDO::FETCH_ASSOC);
 ### What is SQL Injection and how do Prepared Statements fix it?
 
 - is a security attack where a hacker inserts malicious SQL code into an input field to manipulate the database.
-  `To Fix It`
+- `To Fix It`
 
 ```php
 $query = "SELECT * FROM users WHERE id = ?";

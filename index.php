@@ -6,8 +6,14 @@ $config = require("config.php");
 $db = new Database($config['database'], $config['username'], $config['password']);
 
 
-$id = ($_GET['id']);
+$id = $_GET['id'];
+
 $query = "SELECT * FROM users WHERE id = ?";
-$users = $db->query($query , [$id])->fetch();
-dd($users);
+
+$user = $db->query($query, [$id])->fetch();
+
+dd($user);
+
+
+
 require('router.php');
