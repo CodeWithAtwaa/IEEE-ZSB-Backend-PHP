@@ -19,6 +19,10 @@
             }
             ?>
         </ul>
+
+        <p class="mt-5">
+            <a href="/notes/create" class="inline-block px-3 py-3  text-white bg-green-500 rounded hover:bg-blue-600 transition">Create Note</a>
+        </p>
     </div>
 </main>
 

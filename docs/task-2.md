@@ -30,3 +30,41 @@ if ($note['user_id'] !== 1) {
 }
 
 ```
+
+### Validation on Form
+
+- You must make Validation for every form to prevent any dumy data or attck.
+- Make Validation.
+- Make Validation.
+- Make Validation.
+
+```php
+$body = $bosy_error= "";
+if($_SERVER['REQUEST_METHOD'] === "POST") {
+    $body = $_POST['body'];
+
+    if(empty($body)) {
+        $body_error = "PLZ, Enter thr body of note";
+    }
+
+    if(empty($body_error)) {
+        $query = "INSERT INTO notes (body , user_id) VALUES (?,?)";
+        $statment  = $db->query($query , [$body ,$currentUserId ]);
+
+    }
+}
+```
+
+- use `htmlspecialchars` to prvent injection html in form .
+
+```php
+ htmlspecialchars($note['body'])
+```
+
+- You must display error msg if the input validation is false.
+
+```php
+    if(empty($body)) {
+        $body_error = "PLZ, Enter thr body of note";
+    }
+```
