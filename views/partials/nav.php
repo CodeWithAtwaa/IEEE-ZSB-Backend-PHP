@@ -29,6 +29,14 @@
                                                                     echo UrlIs('/contact') ? "bg-gray-900 text-white" : "text-gray-300";
                                                                     ?>
                                 rounded-md px-3 py-2 text-sm font-medium  hover:bg-white/5 hover:text-white">Contact</a>
+
+                                <!-- Notes Links -->
+                                <a href="/notes" class="
+                                                                    <?php
+                                                                    echo UrlIs('/notes') ? "bg-gray-900 text-white" : "text-gray-300";
+                                                                    ?>
+                                rounded-md px-3 py-2 text-sm font-medium  hover:bg-white/5 hover:text-white">Notes</a>
+                                
                             </div>
                         </div>
                     </div>

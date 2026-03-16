@@ -44,9 +44,9 @@ INSERT INTO posts (title, user_id) VALUES ("my fourth post", 3);
 
 -- =========================
 -- insert data in notes table
-INSERT INTO notes (body, user_id) VALUES ("Hi Ya man ", 1);
-INSERT INTO notes (body, user_id) VALUES ("my fits note ", 1);
-INSERT INTO notes (body, user_id) VALUES ("Hi Ya man ", 2);
+INSERT INTO notes (body, user_id) VALUES ("Mohamed Tamer atwaa ", 1);
+INSERT INTO notes (body, user_id) VALUES ("my first notes ", 1);
+INSERT INTO notes (body, user_id) VALUES ("Hi atwaa elsayed ", 1);
 INSERT INTO notes (body, user_id) VALUES ("Hi wellcome ", 3);
 INSERT INTO notes (body, user_id) VALUES ("Hi Ya man ", 2);
 INSERT INTO notes (body, user_id) VALUES ("Hi Ya man ", 4);
