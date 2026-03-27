@@ -14,6 +14,7 @@
         <p class="text-blue-600 my-6"> <?= $note['body'] ?></p>
 
         <form method="POST" class="my-6">
+            <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="id" value="<?php echo $note['id']; ?>">
             <button class="inline-block px-3 py-1 text-xs font-medium text-red-200 bg-red-500 rounded hover:bg-red-600 transition">Delete</button>
         </form>
