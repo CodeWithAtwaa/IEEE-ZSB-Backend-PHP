@@ -1,18 +1,15 @@
 <?php
-require("Validator.php");
+require base_path("Validator.php");
 $heading = "Create Note";
 
-$config = require("config.php");
+$config = require base_path("config.php");
 $db = new Database($config['database'], $config['username'], $config['password']);
 $currentUserId = 1;
 
-
-
-
 $body = "";
+$error = [];
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $body = $_POST['body'];
-    $error = [];
 
     if (! Validator::string($body, 6, 255)) {
         $error['body'] = "A body no more than 255 char and not less than 6 is required";
@@ -24,4 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_SESSION['msg'] = "Note Created Successfully...!";
     }
 }
-include('views/note-create.view.php');
+
+view('notes/create.php', [
+    'heading' => $heading,
+    'error' => $error,
+]);
