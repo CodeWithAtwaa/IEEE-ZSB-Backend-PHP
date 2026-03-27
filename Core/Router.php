@@ -2,41 +2,66 @@
 
 namespace Core;
 
+use Core\Middleware\Middleware ;
+
 class Router
 {
     protected $routes = [];
 
+    public function add($method, $uri, $controller)
+    {
+        $this->routes[] = [
+            'uri' => $uri,
+            'controller' => $controller,
+            'method' => $method,
+            'middleware' => null,
+        ];
+
+        return $this;
+    }
+
     public function get($uri, $controller)
     {
-        $this->routes['GET'][$uri] = $controller;
+        return $this->add('GET', $uri, $controller);
     }
 
     public function post($uri, $controller)
     {
-        $this->routes['POST'][$uri] = $controller;
+        return $this->add('POST', $uri, $controller);
     }
 
     public function put($uri, $controller)
     {
-        $this->routes['PUT'][$uri] = $controller;
+        return $this->add('PUT', $uri, $controller);
     }
 
     public function patch($uri, $controller)
     {
-        $this->routes['PATCH'][$uri] = $controller;
+        return $this->add('PATCH', $uri, $controller);
     }
 
     public function delete($uri, $controller)
     {
-        $this->routes['DELETE'][$uri] = $controller;
+        return $this->add('DELETE', $uri, $controller);
+    }
+
+    public function only($key)
+    {
+        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
+
+        return $this;
     }
 
     public function route($uri, $method)
     {
         $method = strtoupper($method);
 
-        if (isset($this->routes[$method][$uri])) {
-            return require base_path($this->routes[$method][$uri]);
+        foreach ($this->routes as $route) {
+
+            if ($route['uri'] === $uri && $route['method'] === $method) {
+                Middleware::resolve($route['middleware']);
+                return require base_path($route['controller']);
+            }
         }
 
         $this->abort();
@@ -45,7 +70,9 @@ class Router
     protected function abort($code = 404)
     {
         http_response_code($code);
+
         require base_path("views/{$code}.php");
+
         die();
     }
 }
