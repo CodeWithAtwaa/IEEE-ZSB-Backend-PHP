@@ -1,11 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validator;
 
 require base_path("Core/Validator.php");
-$config = require base_path("config.php");
-$db = new Database($config['database'], $config['username'], $config['password']);
+$db = App::resolve(Database::class);
 
 
 $currentUserId = 1;
