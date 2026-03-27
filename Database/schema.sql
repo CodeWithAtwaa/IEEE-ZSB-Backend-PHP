@@ -13,6 +13,10 @@ CREATE Table IF NOT EXISTS users (
     email VARCHAR(255) NOT NULL UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE users  
+ADd COLUMN password varchar(255) after email;
+
 -- DROP table users
 DROP Table if EXISTS users;
 
