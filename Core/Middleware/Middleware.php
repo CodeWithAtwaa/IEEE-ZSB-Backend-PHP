@@ -18,7 +18,9 @@ class Middleware
             return;
         }
         $middlewareClass = static::MAP[$key];
-
+        if (! $middlewareClass) {
+            return new \Exception("No mathcing " . $key);
+        }
         (new $middlewareClass)->handle();
     }
 }
