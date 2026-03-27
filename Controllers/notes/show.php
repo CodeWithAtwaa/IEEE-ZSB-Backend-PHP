@@ -1,4 +1,7 @@
 <?php
+
+use Core\Database;
+
 $heading = "Note";
 $currentUserId = 1;
 

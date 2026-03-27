@@ -1,5 +1,7 @@
 <?php
-require base_path("Validator.php");
+use Core\Database;
+use Core\Validator;
+require base_path("Core/Validator.php");
 $heading = "Create Note";
 
 $config = require base_path("config.php");
