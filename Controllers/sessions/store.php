@@ -6,19 +6,14 @@ use Core\Validator;
 
 $db = App::resolve(Database::class);
 
-$heading = "Register";
+$heading = "Login";
 
 $error = [];
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
-    $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    if (!Validator::string($name, 3, 255)) {
-        $error['name'] = "Name must be between 3 and 255 characters";
-    }
 
     if (!Validator::string($email, 6, 255)) {
         $error['email'] = "Email must be between 6 and 255 characters";
@@ -29,26 +24,33 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 
     if (!empty($error)) {
-        return view('registration/create.php', [
+        return view('session/create.php', [
             'heading' => $heading,
             'error' => $error
         ]);
     }
 
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    $user = $db->query(
+        "SELECT * FROM users WHERE email = ?",
+        [$email]
+    )->find();
 
-    $db->query(
-        "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-        [$name, $email, $hashedPassword]
-    );
+    if ($user && password_verify($password, $user['password'])) {
 
-    $user = [
-        'name' => $name,
-        'email' => $email
-    ];
+        login([
+            'id' => $user['id'],
+            'name' => $user['name'],
+            'email' => $user['email']
+        ]);
 
-    login($user);
+        header('location: /');
+        exit();
+    }
 
-    header('location: /');
-    die();
+    $error['email'] = "Invalid email or password";
+
+    return view('sessions/create.php', [
+        'heading' => $heading,
+        'error' => $error
+    ]);
 }

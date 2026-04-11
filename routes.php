@@ -15,6 +15,9 @@ $router->get('/note/edit', 'Controllers/notes/edit.php');
 $router->patch('/note', 'Controllers/notes/update.php');
 
 
-$router->get('/register' , 'Controllers/registration/create.php')->only('guest');
+$router->get('/register' , 'Controllers/registration/create.php');
 $router->post('/register' , 'Controllers/registration/store.php');
 
+$router->get('/login', 'Controllers/sessions/create.php');
+$router->post('/login', 'Controllers/sessions/store.php');
+$router->delete('/logout', 'Controllers/sessions/destroy.php');

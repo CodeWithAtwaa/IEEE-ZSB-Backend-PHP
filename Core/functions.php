@@ -1,5 +1,7 @@
 <?php
+
 use Core\Response;
+
 function dd($value)
 {
     echo "<pre>";
@@ -16,10 +18,11 @@ function UrlIs($value)
 }
 
 
-function abort($code = 404) {
-            http_response_code($code);
-        require base_path("views/{$code}.php");
-        die();
+function abort($code = 404)
+{
+    http_response_code($code);
+    require base_path("views/{$code}.php");
+    die();
 }
 function authorize($condition, $status = Response::FORBIDDEN)
 {
@@ -38,4 +41,12 @@ function view($path, $params = [])
 {
     extract($params);
     require base_path('views/' . $path);
+}
+
+
+function login($user)
+{
+    $_SESSION['user'] = [
+        'email' => $user['email'],
+    ];
 }
