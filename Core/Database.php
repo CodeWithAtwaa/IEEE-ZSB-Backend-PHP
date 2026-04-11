@@ -9,7 +9,6 @@ class Database
     
     public function __construct($config, $username = "root", $password = "MyRoot@1234")
     {
-        $config['dbname'] = "IEEE_Backend_PHP";
         $dsn = "mysql:" . http_build_query($config, '', ';');
         // dd($config);
        

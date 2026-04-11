@@ -97,10 +97,3 @@ Follow clean coding practices and add tests when appropriate.
 ## License
 
 This project is licensed under the MIT License. Add a `LICENSE` file at the repository root if you want to include the full license text.
-
----
-If you want, I can also:
-
-- add badges (CI, PHP version)
-- create a `LICENSE` file with the MIT text
-- add a short troubleshooting section (common errors and fixes)
