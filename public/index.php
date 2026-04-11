@@ -1,32 +1,39 @@
 <?php
-
-use Core\Router;
-
 session_start();
 
-const BASE_PATH = __DIR__ . '/../';
+use Core\Router;
+use Core\Session;
+use Core\ValidationException;
 
-require BASE_PATH . 'Core/functions.php';
+const BASE_PATH = __DIR__ . "/../";
 
-spl_autoload_register(function ($class) {
-
-    $path = base_path(str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php');
-
-    if (file_exists($path)) {
-        require $path;
-    }
-
-});
+require BASE_PATH . "vendor/autoload.php";
 
 
-require base_path('bootstrap.php');
+require BASE_PATH . "Core/helper.php";
+
+
+require base_path("bootstrap.php");
 
 $router = new Router();
+$rouets  = require base_path('routes.php');
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'] ?? '/';
 
-require base_path('routes.php');
+$method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+if (isset($_POST['_method'])) {
+    $method = $_POST['_method'];
+}
 
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-$method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+try {
+    $router->route($uri, $method);
+} catch (ValidationException $e) {
+    Session::flash('_flashed', value: $e->errors);
+    Session::flash('_old', value: $e->old);
 
-$router->route($uri, $method);
+    
+    return redirct($router->previousURI());
+}
+
+
+Session::unflash();

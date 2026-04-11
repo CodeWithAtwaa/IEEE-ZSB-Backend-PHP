@@ -2,25 +2,25 @@
 
 namespace Core\Middleware;
 
-use Core\Middleware\Auth;
-use Core\Middleware\Guest;
-
 class Middleware
 {
     public  const MAP = [
-        'guest' => Guest::class,
         'auth' => Auth::class,
+        'guest' => Guest::class,
     ];
 
-    public static function resolve($key)
+    public function resolve($key)
     {
-        if (! $key) {
+        if(! $key) {
             return;
         }
-        $middlewareClass = static::MAP[$key] ??false;
-        if (! $middlewareClass) {
-            return new \Exception("No mathcing " . $key);
+        if(! isset(static::MAP[$key])) {
+            throw new \Exception("No middleware mapped for key: {$key}");
         }
-        (new $middlewareClass)->handle();
+
+        $middlewareClass = static::MAP[$key];
+        if (is_string($middlewareClass) && class_exists($middlewareClass)) {
+            (new $middlewareClass())->handle();
+        }
     }
 }
