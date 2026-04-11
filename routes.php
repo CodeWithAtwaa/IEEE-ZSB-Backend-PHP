@@ -5,7 +5,7 @@ $router->get('/contact', 'Controllers/contact.php');
 
 
 $router->get('/notes', 'Controllers/notes/index.php');
-$router->delete('/note', 'Controllers/notes/destory.php');wq
+$router->delete('/note', 'Controllers/notes/destory.php');
 
 $router->get('/notes/create', 'Controllers/notes/create.php');
 $router->post('/notes', 'Controllers/notes/store.php');
