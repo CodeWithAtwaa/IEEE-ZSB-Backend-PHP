@@ -1,8 +1,12 @@
 use IEEE_Backend_PHP;
 
 SELECT * FROM posts;
+SELECT * FROM notes;
 
 SELECT * FROM users;
+delete from users;
+
+
 
 SELECT * FROM notes;
 SELECT 
