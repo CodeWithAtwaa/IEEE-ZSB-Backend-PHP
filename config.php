@@ -3,7 +3,7 @@ return [
     'database' => [
         'host' => 'localhost',
         'port' => 3306,
-        'dbname' => 'mvc',
+        'dbname' => 'IEEE_Backend_PHP',
         'charset' => "utf8mb4",
     ],
 ];
