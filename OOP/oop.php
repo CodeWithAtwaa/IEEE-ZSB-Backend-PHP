@@ -1,17 +1,34 @@
 <?php
-    define("PI" ,"3.1415");
-    // create class
-class AppleDevice {
+// create class
+class AppleDevice
+{
     // properties
-    const CHIP = "A10 Fusion";
+    public $name;
+    private $ram;
+    protected $space;
 
     //Methods
-    public function getChip() {
-        return self::CHIP;
+    public function getName() {
+        return $this->name;
     }
 }
-    // create object
+
+class Sony extends AppleDevice {
+    public $camera;
+    public function getCamera() {
+        return $this->camera;
+    }
+
+}
+
+// create object
 $iphone = new AppleDevice();
-echo $iphone->getChip();
+echo $iphone->name = "Iphone 14";
 echo "<br>";
-echo AppleDevice::CHIP;
+echo $iphone->getName();
+
+$sony = new Sony();
+echo "<br>";
+echo $sony->name = "Sony";
+echo "<br>";
+echo $sony->getCamera();
