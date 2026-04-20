@@ -207,7 +207,7 @@ class Dog implements Animal {
 
 $cat = new Cat();
 $cat->makeSound();
-
+q
 $dog = new Dog();
 $dog->makeSound();
 ```
@@ -218,3 +218,4 @@ $dog->makeSound();
 - All interface methods must be public, while abstract methods can be public or protected
 - All methods in an interface are abstract, so they cannot be implemented in code and the abstract keyword is not necessary
 - Classes can implement an interface while inheriting from another class at the same time
+
