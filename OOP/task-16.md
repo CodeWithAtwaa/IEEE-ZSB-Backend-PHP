@@ -301,3 +301,12 @@ $table->title = "My table";
 $table->rows = 5;
 
 ```
+
+## AutoLoad Classes
+- utoload is a feature that automatically loads class files when you use a class, so you don’t have to manually include them with include or require.
+
+```php
+spl_autoload_register(function ($class) {
+    include 'classes/' . $class . '.php';
+});
+```
