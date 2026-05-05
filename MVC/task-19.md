@@ -4,7 +4,7 @@
 
 - The Model is the only part of the application that should talk directly to the database.
 
-`Why` 
+`Why`   
 1. Separation of concerns
  - Model: handle the data and bussines logic
  - View: display data.
